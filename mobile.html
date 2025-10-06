@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mi Pueblo — Mobile Menu</title>
+    <link rel="stylesheet" href="mobile.css">
+  </head>
+  <body>
+    <header class="mobile-header">
+      <div class="brand">
+        <img src="images/mipueblo_logo.webp" alt="Mi Pueblo" class="brand-logo">
+        <h1>Mi Pueblo — Menu</h1>
+      </div>
+      <div class="meta">
+        <p class="subtitle">Scan QR to open this menu or share this URL</p>
+      </div>
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="Search dishes or ingredients" aria-label="Search menu">
+        <div class="category-scroll" id="categoryScroll"></div>
+      </div>
+    </header>
+
+    <main id="menuList" class="menu-list">
+      <!-- Items injected here -->
+    </main>
+
+    <footer class="mobile-footer">
+      <div>© 2025 Mi Pueblo</div>
+      <div class="qr-note">Tip: Use your phone camera to scan the QR at the table to open this menu</div>
+    </footer>
+
+    <script src="mobile.js"></script>
+  </body>
+</html>

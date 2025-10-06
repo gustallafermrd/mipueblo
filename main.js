@@ -53,7 +53,8 @@ const menuItems = [
     price: 12.99,
     category: 'tacos',
     description: 'Marinated pork with pineapple, onions, and cilantro on corn tortillas',
-    icon: '🌮'
+    icon: '🌮',
+    url: 'images/taco.png'
   },
   {
     id: 2,
@@ -62,6 +63,7 @@ const menuItems = [
     category: 'tacos',
     description: 'Grilled steak with fresh salsa, onions, and lime',
     icon: '🌮'
+    , url: 'images/taco.png'
   },
   {
     id: 3,
@@ -70,6 +72,7 @@ const menuItems = [
     category: 'tacos',
     description: 'Beer-battered fish with cabbage slaw and chipotle mayo',
     icon: '🌮'
+    , url: 'images/taco.png'
   },
   {
     id: 4,
@@ -78,6 +81,7 @@ const menuItems = [
     category: 'burritos',
     description: 'Grilled chicken, rice, beans, cheese, and salsa wrapped in a flour tortilla',
     icon: '🌯'
+    , url: 'images/burrito.png'
   },
   {
     id: 5,
@@ -86,6 +90,7 @@ const menuItems = [
     category: 'burritos',
     description: 'Seasoned steak, rice, black beans, guacamole, and sour cream',
     icon: '🌯'
+    , url: 'images/burrito.png'
   },
   {
     id: 6,
@@ -94,6 +99,7 @@ const menuItems = [
     category: 'burritos',
     description: 'Grilled vegetables, rice, beans, cheese, and fresh salsa',
     icon: '🌯'
+    , url: 'images/burrito.png'
   },
   {
     id: 7,
@@ -102,6 +108,7 @@ const menuItems = [
     category: 'enchiladas',
     description: 'Three cheese enchiladas topped with red sauce and melted cheese',
     icon: '🫔'
+    , url: 'images/enchilada.png'
   },
   {
     id: 8,
@@ -110,6 +117,7 @@ const menuItems = [
     category: 'enchiladas',
     description: 'Chicken enchiladas with green tomatillo sauce and sour cream',
     icon: '🫔'
+    , url: 'images/enchilada.png'
   },
   {
     id: 9,
@@ -118,6 +126,7 @@ const menuItems = [
     category: 'enchiladas',
     description: 'Ground beef enchiladas with red sauce and melted cheese',
     icon: '🫔'
+    , url: 'images/enchilada.png'
   },
   {
     id: 10,
@@ -126,6 +135,7 @@ const menuItems = [
     category: 'drinks',
     description: 'Traditional rice drink with cinnamon and vanilla',
     icon: '🥤'
+    , url: 'images/horchata.png'
   },
   {
     id: 11,
@@ -134,6 +144,7 @@ const menuItems = [
     category: 'drinks',
     description: 'Refreshing hibiscus flower tea',
     icon: '🥤'
+    , url: 'images/horchata.png'
   },
   {
     id: 12,
@@ -142,6 +153,7 @@ const menuItems = [
     category: 'drinks',
     description: 'Sweet and tangy tamarind drink',
     icon: '🥤'
+    , url: 'images/horchata.png'
   }
 ];
 
@@ -157,7 +169,9 @@ function renderMenuItems(category = 'all') {
   menuGrid.innerHTML = filteredItems.map(item => `
     <div class="menu-item" data-category="${item.category}">
       <div class="menu-item-image">
-        <span>${item.icon}</span>
+        <span>
+          <img src="${item.url}" alt="${item.name}" loading="lazy" />
+        </span>
       </div>
       <div class="menu-item-content">
         <div class="menu-item-header">
