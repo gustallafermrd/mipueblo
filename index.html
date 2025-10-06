@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌶️ Mi Pueblo - Authentic Mexican Cuisine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <span class="logo-icon">🌶️</span>
+            <span class="logo-text">Mi Pueblo</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#menu" class="nav-link">Menu</a></li>
+            <li><a href="#locations" class="nav-link">Locations</a></li>
+            <li><a href="#reservation" class="nav-link">Reservation</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button class="btn-pickup">
+              <span class="icon">📍</span>
+              Pick-up
+            </button>
+            <button class="btn-cart" id="cartBtn">
+              <span class="icon">🛒</span>
+              <span class="cart-count">0</span>
+            </button>
+          </div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Authentic Mexican Flavors</h1>
+          <p class="hero-subtitle">Experience the taste of Mexico in Minnesota</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary">Order Now</button>
+            <button class="btn btn-secondary">View Menu</button>
+          </div>
+        </div>
+        <div class="hero-scroll">
+          <span>Scroll</span>
+          <div class="scroll-line"></div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section class="menu-section" id="menu">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Menu</h2>
+            <p class="section-subtitle">Handcrafted dishes with authentic ingredients</p>
+          </div>
+
+          <div class="menu-categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="tacos">Tacos</button>
+            <button class="category-btn" data-category="burritos">Burritos</button>
+            <button class="category-btn" data-category="enchiladas">Enchiladas</button>
+            <button class="category-btn" data-category="drinks">Drinks</button>
+          </div>
+
+          <div class="menu-grid" id="menuGrid">
+            <!-- Menu items will be inserted here by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Locations Section -->
+      <section class="locations-section" id="locations">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Locations</h2>
+            <p class="section-subtitle">Visit us across Minnesota</p>
+          </div>
+
+          <div class="locations-container">
+            <div class="locations-list">
+              <div class="location-item glass" data-location="0">
+                <div class="location-marker">1</div>
+                <div class="location-info">
+                  <h3 class="location-name">Minneapolis Downtown</h3>
+                  <p class="location-address">123 Nicollet Mall<br>Minneapolis, MN 55403</p>
+                  <p class="location-hours">Mon-Sun: 11AM - 10PM</p>
+                  <p class="location-phone">(612) 555-0101</p>
+                </div>
+              </div>
+
+              <div class="location-item glass" data-location="1">
+                <div class="location-marker">2</div>
+                <div class="location-info">
+                  <h3 class="location-name">St. Paul East Side</h3>
+                  <p class="location-address">456 East 7th Street<br>St. Paul, MN 55106</p>
+                  <p class="location-hours">Mon-Sun: 11AM - 10PM</p>
+                  <p class="location-phone">(651) 555-0102</p>
+                </div>
+              </div>
+
+              <div class="location-item glass" data-location="2">
+                <div class="location-marker">3</div>
+                <div class="location-info">
+                  <h3 class="location-name">Bloomington Mall</h3>
+                  <p class="location-address">789 Mall of America<br>Bloomington, MN 55425</p>
+                  <p class="location-hours">Mon-Sun: 10AM - 9PM</p>
+                  <p class="location-phone">(952) 555-0103</p>
+                </div>
+              </div>
+
+              <div class="location-item glass" data-location="3">
+                <div class="location-marker">4</div>
+                <div class="location-info">
+                  <h3 class="location-name">Rochester Center</h3>
+                  <p class="location-address">321 Broadway Avenue<br>Rochester, MN 55904</p>
+                  <p class="location-hours">Mon-Sun: 11AM - 10PM</p>
+                  <p class="location-phone">(507) 555-0104</p>
+                </div>
+              </div>
+
+              <div class="location-item glass" data-location="4">
+                <div class="location-marker">5</div>
+                <div class="location-info">
+                  <h3 class="location-name">Duluth Lakeside</h3>
+                  <p class="location-address">567 Canal Park Drive<br>Duluth, MN 55802</p>
+                  <p class="location-hours">Mon-Sun: 11AM - 10PM</p>
+                  <p class="location-phone">(218) 555-0105</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="map-container">
+              <div id="map" class="map glass"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about-section" id="about">
+        <div class="container">
+          <div class="about-content">
+            <div class="about-text">
+              <h2 class="section-title">Our Story</h2>
+              <p>Founded in 2010, La Casa Verde brings authentic Mexican cuisine to the heart of Minnesota. Our recipes have been passed down through generations, ensuring every dish captures the true essence of Mexican culinary tradition.</p>
+              <p>We use only the freshest ingredients, sourced locally whenever possible, and prepare everything fresh daily. From our handmade tortillas to our signature salsas, every element is crafted with care and passion.</p>
+              <div class="about-stats">
+                <div class="stat">
+                  <div class="stat-number">5</div>
+                  <div class="stat-label">Locations</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">15+</div>
+                  <div class="stat-label">Years Serving</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-number">100K+</div>
+                  <div class="stat-label">Happy Customers</div>
+                </div>
+              </div>
+            </div>
+            <div class="about-image glass">
+              <div class="image-placeholder">
+                <span class="placeholder-icon">🌶️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h4>La Casa Verde</h4>
+              <p>Authentic Mexican cuisine across Minnesota</p>
+            </div>
+            <div class="footer-section">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#about">About</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Contact</h4>
+              <ul>
+                <li>info@lacasaverde.com</li>
+                <li>(612) 555-0123</li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Hours</h4>
+              <ul>
+                <li>Mon-Sun: 11AM - 10PM</li>
+                <li>Extended hours at some locations</li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2025 Mi Pueblo. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h3>Your Order</h3>
+        <button class="cart-close" id="cartClose">&times;</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <div class="empty-cart">
+          <span class="empty-icon">🛒</span>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span class="total-amount" id="cartTotal">$0.00</span>
+        </div>
+        <button class="btn btn-primary btn-full" id="checkoutBtn">Proceed to Checkout</button>
+      </div>
+    </div>
+
+    <!-- Pick-up Modal -->
+    <div class="modal" id="pickupModal">
+      <div class="modal-content glass">
+        <div class="modal-header">
+          <h3>Select Pick-up Location</h3>
+          <button class="modal-close" id="pickupClose">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="pickup-locations">
+            <div class="pickup-option">
+              <input type="radio" id="loc1" name="location" value="Minneapolis Downtown">
+              <label for="loc1">
+                <div class="pickup-name">Minneapolis Downtown</div>
+                <div class="pickup-address">123 Nicollet Mall</div>
+              </label>
+            </div>
+            <div class="pickup-option">
+              <input type="radio" id="loc2" name="location" value="St. Paul East Side">
+              <label for="loc2">
+                <div class="pickup-name">St. Paul East Side</div>
+                <div class="pickup-address">456 East 7th Street</div>
+              </label>
+            </div>
+            <div class="pickup-option">
+              <input type="radio" id="loc3" name="location" value="Bloomington Mall">
+              <label for="loc3">
+                <div class="pickup-name">Bloomington Mall</div>
+                <div class="pickup-address">789 Mall of America</div>
+              </label>
+            </div>
+            <div class="pickup-option">
+              <input type="radio" id="loc4" name="location" value="Rochester Center">
+              <label for="loc4">
+                <div class="pickup-name">Rochester Center</div>
+                <div class="pickup-address">321 Broadway Avenue</div>
+              </label>
+            </div>
+            <div class="pickup-option">
+              <input type="radio" id="loc5" name="location" value="Duluth Lakeside">
+              <label for="loc5">
+                <div class="pickup-name">Duluth Lakeside</div>
+                <div class="pickup-address">567 Canal Park Drive</div>
+              </label>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-full">Confirm Location</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
