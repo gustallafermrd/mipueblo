@@ -1,10 +1,10 @@
 /* Mobile-first menu styles - sleek & modern */
 :root{
   --bg: #fffaf6;
-  --accent: #2d6e4e;
-  --accent-2: #d83838;
+  --accent: hsl(149, 88%, 29%);;
+  --accent-2: hsl(357, 95%, 47%);
   --muted: #7a7a7a;
-  --card-radius: 16px;
+  --card-radius: 25px;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
