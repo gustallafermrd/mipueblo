@@ -74,7 +74,7 @@
             <button class="category-btn active" data-category="all">All</button>
             <button class="category-btn" data-category="tacos">Tacos</button>
             <button class="category-btn" data-category="burritos">Burritos</button>
-            <button class="category-btn" data-category="enchiladas">Enchiladas</button>
+            <button class="category-btn" data-category="fajitas">Fajitas</button>
             <button class="category-btn" data-category="drinks">Drinks</button>
           </div>
 
@@ -295,6 +295,35 @@
     </div>
 
     <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Checkout Modal -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-content glass">
+    <div class="modal-header">
+      <h3>Checkout</h3>
+      <button class="modal-close" id="checkoutClose">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div id="checkoutSummary"></div>
+      <form id="checkoutForm">
+        <div>
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+          <label for="address">Dirección:</label>
+          <input type="text" id="address" name="address" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Finalizar compra</button>
+      </form>
+    </div>
+  </div>
+  <div class="modal-overlay" id="checkoutOverlay"></div>
+</div>
 
     <script src="main.js"></script>
   </body>

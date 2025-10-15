@@ -49,89 +49,89 @@ const locations = [
 const menuItems = [
   {
     id: 1,
-    name: 'Tacos al Pastor',
-    price: 12.99,
+    name: '3 Campechanos Tacos',
+    price: 15.00,
     category: 'tacos',
-    description: 'Marinated pork with pineapple, onions, and cilantro on corn tortillas',
+    description: 'Steak and chorizo. These tacos made with yellow corn tortilla, stuffed with cilantro and raw onions. Served with rice, beans, grilled onions, limes, chilis toreados and taco sauce. ',
     icon: '🌮',
     url: 'images/taco.png'
   },
   {
     id: 2,
-    name: 'Carne Asada Tacos',
-    price: 13.99,
+    name: '3 Pastor Tacos',
+    price: 15.00,
     category: 'tacos',
-    description: 'Grilled steak with fresh salsa, onions, and lime',
+    description: 'Marinated pork. These tacos made with yellow corn tortilla, stuffed with cilantro and raw onions. Served with rice, beans, grilled onions, limes, chilis toreados and taco sauce.',
     icon: '🌮'
     , url: 'images/taco.png'
   },
   {
     id: 3,
-    name: 'Fish Tacos',
-    price: 14.99,
+    name: '3 Carnitas Tacos',
+    price: 15.00,
     category: 'tacos',
-    description: 'Beer-battered fish with cabbage slaw and chipotle mayo',
+    description: 'Pork. These tacos made with yellow corn tortilla, stuffed with cilantro and raw onions. Served with rice, beans, grilled onions, limes, chilis toreados and taco sauce.',
     icon: '🌮'
     , url: 'images/taco.png'
   },
   {
     id: 4,
-    name: 'Chicken Burrito',
-    price: 11.99,
+    name: 'Burrito Bandera',
+    price: 16.50,
     category: 'burritos',
-    description: 'Grilled chicken, rice, beans, cheese, and salsa wrapped in a flour tortilla',
+    description: 'Burrito filled with steak, grilled chicken, carnitas, rice and beans. Topped with cilantro, green, red and cheese sauce.',
     icon: '🌯'
     , url: 'images/burrito.png'
   },
   {
     id: 5,
-    name: 'Steak Burrito',
-    price: 13.99,
+    name: 'Burrito Chile Verde',
+    price: 16.50,
     category: 'burritos',
-    description: 'Seasoned steak, rice, black beans, guacamole, and sour cream',
+    description: 'Burrito filled with carnitas, rice, and beans. Topped with green sauce and queso dip.',
     icon: '🌯'
     , url: 'images/burrito.png'
   },
   {
     id: 6,
-    name: 'Veggie Burrito',
-    price: 10.99,
+    name: 'Burrito Mi Pueblo',
+    price: 16.50,
     category: 'burritos',
-    description: 'Grilled vegetables, rice, beans, cheese, and fresh salsa',
+    description: 'Grande burrito filled steak, grilled chicken, shrimp, chorizo, carnitas, rice, beans, onions, tomatoes, bell peppers, zucchini and mushrooms. Topped with cheese sauce. Served with a guacamole salad.',
     icon: '🌯'
     , url: 'images/burrito.png'
   },
   {
     id: 7,
-    name: 'Cheese Enchiladas',
-    price: 10.99,
-    category: 'enchiladas',
-    description: 'Three cheese enchiladas topped with red sauce and melted cheese',
+    name: 'Fajitas GTO | Guanajuato',
+    price: 22.50,
+    category: 'fajitas',
+    description: 'Steak, chicken and shrimp fajitas. All fajitas are cooked with grilled onions, zucchini, bell peppers, tomatoes, and mushrooms. Served with rice, beans, lettuce, pico de gallo, sour cream and guacamole. Choice of flour or corn tortillas.',
     icon: '🫔'
-    , url: 'images/enchilada.png'
+    , url: 'images/fajitas.jpg'
   },
   {
     id: 8,
-    name: 'Chicken Enchiladas',
-    price: 12.99,
-    category: 'enchiladas',
-    description: 'Chicken enchiladas with green tomatillo sauce and sour cream',
+    name: 'Shrimp Fajitas',
+    price: 21.50,
+    category: 'fajitas',
+    description: 'All fajitas are cooked with grilled onions, zucchini, bell peppers, tomatoes, and mushrooms. Served with rice, beans, lettuce, pico de gallo, sour cream and guacamole. Choice of flour or corn tortillas.',
     icon: '🫔'
-    , url: 'images/enchilada.png'
+    , url: 'images/fajitas.jpg'
   },
   {
     id: 9,
-    name: 'Beef Enchiladas',
-    price: 13.99,
-    category: 'enchiladas',
-    description: 'Ground beef enchiladas with red sauce and melted cheese',
+    name: 'Steak, Chicken or Mixed Fajitas',
+    price: 18.50,
+    category: 'fajitas',
+    description: 'All fajitas are cooked with grilled onions, zucchini, bell peppers, tomatoes, and mushrooms. Served with rice, beans, lettuce, pico de gallo, sour cream and guacamole. Choice of flour or corn tortillas.',
     icon: '🫔'
-    , url: 'images/enchilada.png'
+    , url: 'images/fajitas.jpg'
   },
   {
     id: 10,
     name: 'Horchata',
-    price: 3.99,
+    price: 5.00,
     category: 'drinks',
     description: 'Traditional rice drink with cinnamon and vanilla',
     icon: '🥤'
@@ -140,20 +140,20 @@ const menuItems = [
   {
     id: 11,
     name: 'Jamaica',
-    price: 3.99,
+    price: 5.00,
     category: 'drinks',
     description: 'Refreshing hibiscus flower tea',
     icon: '🥤'
-    , url: 'images/horchata.png'
+    , url: 'images/jamaica.jpg'
   },
   {
     id: 12,
-    name: 'Tamarindo',
-    price: 3.99,
+    name: 'Mexican Coke',
+    price: 5.00,
     category: 'drinks',
     description: 'Sweet and tangy tamarind drink',
     icon: '🥤'
-    , url: 'images/horchata.png'
+    , url: 'images/coke.jpg'
   }
 ];
 
@@ -323,7 +323,7 @@ function handleCheckout() {
     return;
   }
 
-  alert('Thank you for your order! This is a mockup, so no actual payment is processed.');
+  //alert('Thank you for your order! This is a mockup, so no actual payment is processed.');
   cart = [];
   updateCart();
   closeCart();
@@ -543,5 +543,75 @@ function init() {
     });
   });
 }
+
+// Referencias modal checkout
+const checkoutModal = document.getElementById('checkoutModal');
+const checkoutOverlay = document.getElementById('checkoutOverlay');
+const checkoutCloseBtn = document.getElementById('checkoutClose');
+const checkoutSummary = document.getElementById('checkoutSummary');
+const checkoutForm = document.getElementById('checkoutForm');
+
+// Mostrar resumen en el modal checkout
+function renderCheckoutSummary() {
+  if (cart.length === 0) {
+    checkoutSummary.innerHTML = '<p>Tu carrito está vacío.</p>';
+    return;
+  }
+  let summaryHTML = '<h4>Resumen del pedido:</h4><ul class="checkout-items">';
+  cart.forEach(item => {
+    summaryHTML += `
+      <li class="checkout-item">
+        <img src="${item.url}" alt="${item.name}" class="checkout-item-img" />
+        <div class="checkout-item-info">
+          <span>${item.quantity} x ${item.name}</span>
+          <span>$${(item.price * item.quantity).toFixed(2)}</span>
+        </div>
+      </li>`;
+  });
+  summaryHTML += `</ul><p><strong>Total: $${cart.reduce((acc, i) => acc + i.price * i.quantity, 0).toFixed(2)}</strong></p>`;
+  checkoutSummary.innerHTML = summaryHTML;
+}
+
+
+// Abrir modal checkout
+function openCheckout() {
+  renderCheckoutSummary();
+  checkoutModal.classList.add('active');
+  checkoutOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+// Cerrar modal checkout
+function closeCheckout() {
+  checkoutModal.classList.remove('active');
+  checkoutOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Manejar click en botón proceed to checkout
+document.getElementById('checkoutBtn').addEventListener('click', function() {
+  if (cart.length === 0) {
+    alert('Tu carrito está vacío.');
+    return;
+  }
+  closeCart(); // Cerrar modal carrito
+  openCheckout();
+});
+
+// Cerrar modal checkout al hacer clic en botón o overlay
+checkoutCloseBtn.addEventListener('click', closeCheckout);
+checkoutOverlay.addEventListener('click', closeCheckout);
+
+// Manejar envío de formulario checkout
+checkoutForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Aquí puedes agregar validaciones o procesamiento real
+  //alert('Gracias por tu compra, ' + checkoutForm.name.value + '!');
+  cart = [];
+  updateCart();
+  closeCheckout();
+});
+
+// Opcional: si quieres que el carrito se actualice y el modal carrito se cierre, ya está incluido en la función handleCheckout original, se reemplaza por openCheckout ahora.
 
 document.addEventListener('DOMContentLoaded', init);

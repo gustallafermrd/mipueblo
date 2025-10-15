@@ -10,9 +10,9 @@
   --light-green: hsl(149, 88%, 69%);
   --dark-green: hsl(149, 88%, 15%);
   --primary-red: hsl(357, 95%, 47%);
-  --secondary-red: hsl(357,85%, 67%);
-  --light-red: hsl(357,85%, 87%);
-  --dark-red: hsl(357,85%, 25%);
+  --secondary-red: hsl(357, 85%, 67%);
+  --light-red: hsl(357, 85%, 87%);
+  --dark-red: hsl(357, 85%, 25%);
   --cream: #fef8f3;
   --white: #ffffff;
   --text-dark: #1a1a1a;
@@ -21,7 +21,8 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   background-color: var(--cream);
@@ -78,7 +79,7 @@ html {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 24px;
   font-weight: 700;
   color: var(--primary-green);
@@ -110,7 +111,7 @@ html {
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -162,7 +163,7 @@ html {
 }
 
 .btn-cart {
-  background: var(--primary-red);
+  background: var(--secondary-red);
   color: white;
   position: relative;
 }
@@ -221,20 +222,27 @@ html {
   right: 0;
   bottom: 0;
   /* Replace the gradient with your image */
-  background: url('images/hero.jpg') center center/cover no-repeat;
+  background: url("images/hero.jpg") center center/cover no-repeat;
   opacity: 0.25; /* Adjust for overlay effect */
 }
 
 .hero-bg::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(216, 56, 56, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(45, 110, 78, 0.1) 0%, transparent 50%);
+  background-image: radial-gradient(
+      circle at 20% 50%,
+      rgba(216, 56, 56, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(45, 110, 78, 0.1) 0%,
+      transparent 50%
+    );
 }
 
 .hero-content {
@@ -245,7 +253,7 @@ html {
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(48px, 8vw, 96px);
   font-weight: 800;
   color: var(--primary-green);
@@ -275,7 +283,7 @@ html {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .btn-primary {
@@ -326,7 +334,8 @@ html {
 }
 
 @keyframes scrollDown {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
     opacity: 0;
   }
@@ -343,7 +352,7 @@ html {
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 700;
   color: var(--primary-green);
@@ -436,13 +445,17 @@ html {
 }
 
 .menu-item-image::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
 }
 
 /* Make images adapt to parent container */
@@ -528,7 +541,11 @@ html {
 /* Locations Section */
 .locations-section {
   padding: 120px 0;
-  background: linear-gradient(135deg, rgba(45, 110, 78, 0.05) 0%, rgba(216, 56, 56, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(45, 110, 78, 0.05) 0%,
+    rgba(216, 56, 56, 0.05) 100%
+  );
 }
 
 .locations-container {
@@ -668,7 +685,7 @@ html {
 }
 
 .stat-number {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 48px;
   font-weight: 700;
   color: var(--primary-green);
@@ -692,16 +709,19 @@ html {
   justify-content: center;
   overflow: hidden;
   /* keep a subtle fallback color while the image loads */
-  background: linear-gradient(135deg, rgba(45, 110, 78, 0.06) 0%, rgba(216, 56, 56, 0.06) 100%);
-  
+  background: linear-gradient(
+    135deg,
+    rgba(45, 110, 78, 0.06) 0%,
+    rgba(216, 56, 56, 0.06) 100%
+  );
 }
 
 /* blurred hero-like background image */
 .about-image::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: url('images/familia.jpg') center center/cover no-repeat;
+  background: url("images/familia.jpg") center center/cover no-repeat;
   filter: blur(2px) brightness(0.95);
   transform: scale(1.04);
   z-index: 0;
@@ -709,13 +729,20 @@ html {
 
 /* radial color overlays like the hero */
 .about-image::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(216, 56, 56, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(45, 110, 78, 0.08) 0%, transparent 50%);
+  background-image: radial-gradient(
+      circle at 20% 50%,
+      rgba(216, 56, 56, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(45, 110, 78, 0.08) 0%,
+      transparent 50%
+    );
 }
 
 .image-placeholder {
@@ -726,8 +753,8 @@ html {
 
 .placeholder-icon {
   font-size: 120px;
-  color: rgba(255,255,255,0.95);
-  text-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Footer */
@@ -869,7 +896,11 @@ html {
   width: 80px;
   height: 80px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--light-green) 0%, var(--secondary-green) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--light-green) 0%,
+    var(--secondary-green) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1247,4 +1278,94 @@ html {
   .logo-text {
     display: none;
   }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.modal-overlay.active {
+  display: block;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-body form div {
+  margin-bottom: 12px;
+}
+
+.modal-body form label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.modal-body form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-full {
+  width: 100%;
+}
+.checkout-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.checkout-item-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.checkout-item-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
 }

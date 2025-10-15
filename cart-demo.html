@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Pueblo – Cart + Pick-up Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- =====  MINIFIED STYLES  ===== -->
+  <style>
+    :root{--primary-green:#1e7d52;--primary-red:#d83838;--cream:#fef8f3;--text-dark:#1a1a1a;--text-light:#666;}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif}
+    body{background:var(--cream);color:var(--text-dark);line-height:1.6}
+    h1,h2,h3{font-family:'Playfair Display',serif}
+    .container{max-width:1000px;margin:0 auto;padding:40px 20px}
+    .section-title{font-size:2.2rem;margin-bottom:12px;color:var(--primary-green)}
+    .section-subtitle{font-size:1rem;color:var(--text-light);margin-bottom:40px}
+    .top-bar{position:sticky;top:0;left:0;right:0;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;z-index:1500}
+    .logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--primary-green)}
+    .btn-cart-header{background:var(--primary-red);color:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px}
+    .cart-count{background:#fff;color:var(--primary-red);border-radius:50%;width:22px;height:22px;display:grid;place-content:center;font-size:.75rem;font-weight:700}
+
+    /* ----  PICK-UP BAR  ---- */
+    .pickup-bar{background:rgba(30,125,82,.08);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;font-size:.95rem}
+    .pickup-bar span{font-weight:600}
+    .pickup-bar button{background:none;border:none;color:var(--primary-green);font-weight:600;cursor:pointer}
+    .pickup-bar button:hover{text-decoration:underline}
+
+    /* ----  MENU GRID  ---- */
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+    .menu-item{background:#fff;border:1px solid rgba(30,125,82,.12);border-radius:20px;padding:20px;display:flex;flex-direction:column;transition:.25s}
+    .menu-item:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.08)}
+    .menu-item-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+    .menu-item-name{font-size:1.1rem;font-weight:700}
+    .menu-item-price{font-weight:700;color:var(--primary-red)}
+    .menu-item-description{font-size:.9rem;color:var(--text-light);margin-bottom:12px;flex:1}
+    .btn-add-cart{align-self:flex-start;background:var(--primary-red);color:#fff;border:none;padding:10px 20px;border-radius:12px;font-weight:600;cursor:pointer;transition:.2s}
+    .btn-add-cart:hover{background:#b33030}
+
+    /* ----  CART SIDEBAR  ---- */
+    .cart-sidebar{position:fixed;top:0;right:-380px;width:100%;max-width:380px;height:100%;background:#fff;box-shadow:-4px 0 20px rgba(0,0,0,.15);display:flex;flex-direction:column;transition:right .35s ease;z-index:2000}
+    .cart-sidebar.open{right:0}
+    .cart-header{padding:20px;border-bottom:1px solid rgba(0,0,0,.08);display:flex;justify-content:space-between;align-items:center}
+    .cart-header h3{font-size:1.3rem}
+    .cart-close{background:none;border:none;font-size:1.8rem;color:var(--text-light);cursor:pointer}
+    .cart-items{flex:1;overflow-y:auto;padding:20px}
+    .cart-footer{padding:20px;border-top:1px solid rgba(0,0,0,.08);background:rgba(30,125,82,.04)}
+    .cart-total{display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;margin-bottom:16px}
+    .total-amount{color:var(--primary-red)}
+    .btn-primary{width:100%;background:var(--primary-green);color:#fff;border:none;padding:14px;border-radius:14px;font-size:1rem;font-weight:600;cursor:pointer;transition:.2s}
+    .btn-primary:hover{background:#166141}
+    .empty-cart{text-align:center;padding:60px 20px;color:var(--text-light)}
+    .empty-icon{font-size:3rem;margin-bottom:12px;opacity:.45}
+    .cart-item{display:flex;gap:14px;padding:14px;background:rgba(30,125,82,.06);border-radius:14px;margin-bottom:14px}
+    .cart-item-image{width:70px;height:70px;background:var(--primary-green);color:#fff;border-radius:10px;display:grid;place-content:center;font-size:1.6rem;flex-shrink:0}
+    .cart-item-details{flex:1;display:flex;flex-direction:column}
+    .cart-item-name{font-weight:700;margin-bottom:4px}
+    .cart-item-price{font-weight:700;color:var(--primary-red);margin-bottom:6px}
+    .cart-item-controls{display:flex;align-items:center;gap:10px}
+    .quantity-btn{width:28px;height:28px;border:none;background:var(--primary-green);color:#fff;border-radius:6px;font-size:1.1rem;cursor:pointer}
+    .btn-remove{margin-left:auto;background:var(--primary-red);color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:.75rem;cursor:pointer}
+    .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);z-index:1999;opacity:0;visibility:hidden;transition:.35s}
+    .cart-overlay.active{opacity:1;visibility:visible}
+
+    /* ----  PICK-UP MODAL  ---- */
+    .modal{position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:.3s}
+    .modal.active{opacity:1;visibility:visible}
+    .modal-content{width:100%;max-width:520px;background:#fff;border-radius:20px;padding:28px}
+    .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .modal-header h3{font-size:1.4rem}
+    .modal-close{background:none;border:none;font-size:1.8rem;color:var(--text-light);cursor:pointer}
+    .pickup-options{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+    .pickup-option{padding:16px;border:2px solid rgba(30,125,82,.2);border-radius:12px;cursor:pointer;transition:.2s}
+    .pickup-option:hover{border-color:var(--primary-green)}
+    .pickup-option.selected{background:rgba(30,125,82,.08);border-color:var(--primary-green)}
+    .pickup-option strong{display:block;margin-bottom:4px}
+    .pickup-option span{font-size:.85rem;color:var(--text-light)}
+    .btn-full{width:100%}
+  </style>
+</head>
+
+<body>
+  <!-- =====  TOP BAR  ===== -->
+  <header class="top-bar">
+    <div class="logo">🌶️ Mi Pueblo</div>
+    <button class="btn-cart-header" id="cartToggle">
+      <span>🛒</span>
+      <span class="cart-count" id="cartCount">0</span>
+  </header>
+  <!-- =====  PICK-UP BAR  ===== -->
+  <div id="pickupBar" class="pickup-bar" style="display:none;">
+    <span>Pick-up: <strong id="pickupLocationName"></strong></span>
+    <button id="changeLocationBtn">change</button>
+  </div>
+  <!-- =====  MAIN CONTENT  ===== -->
+  <main class="container">
+    <h1 class="section-title">Menu</h1>
+    <p class="section-subtitle">Authentic Mexican dishes – choose your favourites.</p>
+    <div id="menuWrapper" style="display:none;">
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+    <div id="pickupPrompt" style="text-align:center;padding:60px 20px;">
+      <p style="margin-bottom:20px;">Please choose a pick-up location first.</p>
+      <button class="btn-primary" id="pickLocationBtn">Pick-up location</button>
+    </div>
+  </main>
+  <!-- =====  CART SIDEBAR  ===== -->
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your order</h3>
+      <button class="cart-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="empty-cart">
+        <span class="empty-icon">🛒</span>
+        <p>Your cart is empty</p>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span class="total-amount" id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn-primary" id="checkoutBtn">Checkout</button>
+    </div>
+  </aside>
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <!-- =====  PICK-UP MODAL  ===== -->
+  <div class="modal" id="pickupModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Select pick-up location</h3>
+        <button class="modal-close" id="pickupModalClose">&times;</button>
+      </div>
+      <div class="pickup-options" id="pickupOptions"></div>
+      <button class="btn-primary btn-full" id="confirmLocationBtn" disabled>Confirm location</button>
+    </div>
+  </div>
+  <!-- =====  SCRIPT  ===== -->
+  <script>
+    /* =====  LOCATIONS  ===== */
+    const locations = [
+      {name:'Minneapolis Downtown',address:'123 Nicollet Mall'},
+      {name:'St. Paul East Side',address:'456 East 7th Street'},
+      {name:'Bloomington Mall',address:'789 Mall of America'},
+      {name:'Rochester Center',address:'321 Broadway Avenue'},
+      {name:'Duluth Lakeside',address:'567 Canal Park Drive'}
+    ];
+
+    /* =====  MENU  ===== */
+    const menuItems = [
+      {id:1,name:'Tacos al Pastor',price:12.99,icon:'🌮',description:'Marinated pork with pineapple, onions, cilantro'},
+      {id:2,name:'Carne Asada Tacos',price:13.99,icon:'🌮',description:'Grilled steak with salsa, onions, lime'},
+      {id:3,name:'Chicken Burrito',price:11.99,icon:'🌯',description:'Grilled chicken, rice, beans, cheese, salsa'},
+      {id:4,name:'Cheese Enchiladas',price:10.99,icon:'🫔',description:'Three enchiladas with red sauce & cheese'},
+      {id:5,name:'Horchata',price:3.99,icon:'🥤',description:'Traditional rice drink with cinnamon'}
+    ];
+
+    /* =====  STATE  ===== */
+    let cart = [];
+    let selectedLocation = localStorage.getItem('miPuebloLocation');
+
+    /* =====  INIT  ===== */
+    initLocation();
+    renderMenu();
+    updateCart();
+    bindEvents();
+
+    /* ----------  LOCATION  ---------- */
+    function initLocation(){
+      if(selectedLocation){
+        showLocationBar(selectedLocation);
+        showMenu();
+      }else{
+        openPickupModal();
+      }
+    }
+    function showLocationBar(name){
+      document.getElementById('pickupLocationName').textContent = name;
+      document.getElementById('pickupBar').style.display = 'flex';
+    }
+    function showMenu(){
+      document.getElementById('pickupPrompt').style.display = 'none';
+      document.getElementById('menuWrapper').style.display = 'block';
+    }
+    function openPickupModal(){
+      renderLocationOptions();
+      document.getElementById('pickupModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePickupModal(){
+      document.getElementById('pickupModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function renderLocationOptions(){
+      const box = document.getElementById('pickupOptions');
+      box.innerHTML = locations.map((loc,i)=>`
+        <div class="pickup-option" data-index="${i}">
+          <strong>${loc.name}</strong>
+          <span>${loc.address}</span>
+        </div>`).join('');
+      box.addEventListener('click',e=>{
+        const card = e.target.closest('.pickup-option');
+        if(!card)return;
+        document.querySelectorAll('.pickup-option').forEach(c=>c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedLocation = locations[+card.dataset.index].name;
+        document.getElementById('confirmLocationBtn').disabled = false;
+      });
+    }
+    function confirmLocation(){
+      if(!selectedLocation)return;
+      localStorage.setItem('miPuebloLocation',selectedLocation);
+      showLocationBar(selectedLocation);
+      closePickupModal();
+      showMenu();
+    }
+
+    /* ----------  MENU  ---------- */
+    function renderMenu(){
+      const grid = document.getElementById('menuGrid');
+      grid.innerHTML = menuItems.map(item=>`
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <span class="menu-item-name">${item.name}</span>
+            <span class="menu-item-price">$${item.price.toFixed(2)}</span>
+          </div>
+          <p class="menu-item-description">${item.description}</p>
+          <button class="btn-add-cart" data-id="${item.id}">Add to cart</button>
+        </div>`).join('');
+      grid.addEventListener('click',e=>{
+        if(e.target.classList.contains('btn-add-cart')) addToCart(+e.target.dataset.id);
+      });
+    }
+
+    /* ----------  CART  ---------- */
+    function addToCart(id){
+      const item = menuItems.find(m=>m.id===id);
+      const exist = cart.find(c=>c.id===id);
+      exist ? exist.quantity++ : cart.push({...item,quantity:1});
+      updateCart();
+    }
+    function removeFromCart(id){ cart = cart.filter(c=>c.id!==id); updateCart(); }
+    function changeQty(id,delta){
+      const item = cart.find(c=>c.id===id);
+      if(!item)return;
+      item.quantity+=delta;
+      if(item.quantity<=0) removeFromCart(id); else updateCart();
+    }
+    function updateCart(){
+      const count = cart.reduce((s,i)=>s+i.quantity,0);
+      const total = cart.reduce((s,i)=>s+i.price*i.quantity,0);
+      document.getElementById('cartCount').textContent = count;
+      document.getElementById('cartTotal').textContent = '$'+total.toFixed(2);
+
+      const box = document.getElementById('cartItems');
+      if(!cart.length){
+        box.innerHTML = `<div class="empty-cart"><span class="empty-icon">🛒</span><p>Your cart is empty</p></div>`;
+        return;
+      }
+      box.innerHTML = cart.map(item=>`
+        <div class="cart-item">
+          <div class="cart-item-image">${item.icon}</div>
+          <div class="cart-item-details">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+            <div class="cart-item-controls">
+              <button class="quantity-btn" onclick="changeQty(${item.id},-1)">−</button>
+              <span>${item.quantity}</span>
+              <button class="quantity-btn" onclick="changeQty(${item.id},1)">+</button>
+              <button class="btn-remove" onclick="removeFromCart(${item.id})">Remove</button>
+            </div>
+          </div>
+        </div>`).join('');
+    }
+
+    /* ----------  SIDEBAR TOGGLE  ---------- */
+    function openCart(){
+      document.getElementById('cartSidebar').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCart(){
+      document.getElementById('cartSidebar').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    /* ----------  BIND EVENTS  ---------- */
+    function bindEvents(){
+      document.getElementById('cartToggle').addEventListener('click',openCart);
+      document.getElementById('cartClose').addEventListener('click',closeCart);
+      document.getElementById('cartOverlay').addEventListener('click',closeCart);
+      document.getElementById('checkoutBtn').addEventListener('click',()=>{
+        if(!cart.length){ alert('Cart is empty'); return; }
+        alert('Demo only – no real checkout.\nTotal: '+document.getElementById('cartTotal').textContent);
+        cart=[]; updateCart(); closeCart();
+      });
+      document.getElementById('pickLocationBtn').addEventListener('click',openPickupModal);
+      document.getElementById('changeLocationBtn').addEventListener('click',openPickupModal);
+      document.getElementById('pickupModalClose').addEventListener('click',closePickupModal);
+      document.getElementById('confirmLocationBtn').addEventListener('click',confirmLocation);
+    }
+  </script>
+</body>
+</html>
