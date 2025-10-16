@@ -1,17 +1,8 @@
 const locations = [
   {
-    name: 'Minneapolis Downtown',
-    address: '123 Nicollet Mall',
-    city: 'Minneapolis, MN 55403',
-    phone: '(612) 555-0101',
-    hours: 'Mon-Sun: 11AM - 10PM',
-    lat: 44.9778,
-    lng: -93.2650
-  },
-  {
     name: 'Mi Pueblo Lakeville',
     address: '16060 Cedar Avenue',
-    city: 'SLakeville, MN 55068',
+    city: 'Lakeville, MN 55068',
     phone: '(651) 555-0102',
     hours: 'Mon-Sun: 11AM - 10PM',
     lat: 44.9537,
