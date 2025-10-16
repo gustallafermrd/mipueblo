@@ -1,17 +1,113 @@
 // Mobile menu renderer — uses same items/images as the main site
 const menuItems = [
-  { id:1, name:'Tacos al Pastor', price:12.99, category:'tacos', description:'Marinated pork with pineapple, onions, and cilantro on corn tortillas', url:'images/taco.png' },
-  { id:2, name:'Carne Asada Tacos', price:13.99, category:'tacos', description:'Grilled steak with fresh salsa, onions, and lime', url:'images/taco.png' },
-  { id:3, name:'Fish Tacos', price:14.99, category:'tacos', description:'Beer-battered fish with cabbage slaw and chipotle mayo', url:'images/tacos.jpg' },
-  { id:4, name:'Chicken Burrito', price:11.99, category:'burritos', description:'Grilled chicken, rice, beans, cheese, and salsa wrapped in a flour tortilla', url:'images/burrito.png' },
-  { id:5, name:'Steak Burrito', price:13.99, category:'burritos', description:'Seasoned steak, rice, black beans, guacamole, and sour cream', url:'images/burrito.png' },
-  { id:6, name:'Veggie Burrito', price:10.99, category:'burritos', description:'Grilled vegetables, rice, beans, cheese, and fresh salsa', url:'images/burrito.png' },
-  { id:7, name:'Cheese Enchiladas', price:10.99, category:'enchiladas', description:'Three cheese enchiladas topped with red sauce and melted cheese', url:'images/enchilada.png' },
-  { id:8, name:'Chicken Enchiladas', price:12.99, category:'enchiladas', description:'Chicken enchiladas with green tomatillo sauce and sour cream', url:'images/enchilada.png' },
-  { id:9, name:'Beef Enchiladas', price:13.99, category:'enchiladas', description:'Ground beef enchiladas with red sauce and melted cheese', url:'images/enchilada.png' },
-  { id:10, name:'Horchata', price:3.99, category:'drinks', description:'Traditional rice drink with cinnamon and vanilla', url:'images/horchata.png' },
-  { id:11, name:'Jamaica', price:3.99, category:'drinks', description:'Refreshing hibiscus flower tea', url:'images/horchata.png' },
-  { id:12, name:'Tamarindo', price:3.99, category:'drinks', description:'Sweet and tangy tamarind drink', url:'images/horchata.png' }
+  {
+    id: 1,
+    name: '3 Campechanos Tacos',
+    price: 15.00,
+    category: 'tacos',
+    description: 'Steak and chorizo. These tacos made with yellow corn tortilla, stuffed with cilantro and raw onions. Served with rice, beans, grilled onions, limes, chilis toreados and taco sauce. ',
+    icon: '🌮',
+    url: 'images/taco.png'
+  },
+  {
+    id: 2,
+    name: '3 Pastor Tacos',
+    price: 15.00,
+    category: 'tacos',
+    description: 'Marinated pork. These tacos made with yellow corn tortilla, stuffed with cilantro and raw onions. Served with rice, beans, grilled onions, limes, chilis toreados and taco sauce.',
+    icon: '🌮'
+    , url: 'images/taco.png'
+  },
+  {
+    id: 3,
+    name: '3 Carnitas Tacos',
+    price: 15.00,
+    category: 'tacos',
+    description: 'Pork. These tacos made with yellow corn tortilla, stuffed with cilantro and raw onions. Served with rice, beans, grilled onions, limes, chilis toreados and taco sauce.',
+    icon: '🌮'
+    , url: 'images/taco.png'
+  },
+  {
+    id: 4,
+    name: 'Burrito Bandera',
+    price: 16.50,
+    category: 'burritos',
+    description: 'Burrito filled with steak, grilled chicken, carnitas, rice and beans. Topped with cilantro, green, red and cheese sauce.',
+    icon: '🌯'
+    , url: 'images/burrito.png'
+  },
+  {
+    id: 5,
+    name: 'Burrito Chile Verde',
+    price: 16.50,
+    category: 'burritos',
+    description: 'Burrito filled with carnitas, rice, and beans. Topped with green sauce and queso dip.',
+    icon: '🌯'
+    , url: 'images/burrito.png'
+  },
+  {
+    id: 6,
+    name: 'Burrito Mi Pueblo',
+    price: 16.50,
+    category: 'burritos',
+    description: 'Grande burrito filled steak, grilled chicken, shrimp, chorizo, carnitas, rice, beans, onions, tomatoes, bell peppers, zucchini and mushrooms. Topped with cheese sauce. Served with a guacamole salad.',
+    icon: '🌯'
+    , url: 'images/burrito.png'
+  },
+  {
+    id: 7,
+    name: 'Fajitas GTO | Guanajuato',
+    price: 22.50,
+    category: 'fajitas',
+    description: 'Steak, chicken and shrimp fajitas. All fajitas are cooked with grilled onions, zucchini, bell peppers, tomatoes, and mushrooms. Served with rice, beans, lettuce, pico de gallo, sour cream and guacamole. Choice of flour or corn tortillas.',
+    icon: '🫔'
+    , url: 'images/fajitas.jpg'
+  },
+  {
+    id: 8,
+    name: 'Shrimp Fajitas',
+    price: 21.50,
+    category: 'fajitas',
+    description: 'All fajitas are cooked with grilled onions, zucchini, bell peppers, tomatoes, and mushrooms. Served with rice, beans, lettuce, pico de gallo, sour cream and guacamole. Choice of flour or corn tortillas.',
+    icon: '🫔'
+    , url: 'images/fajitas.jpg'
+  },
+  {
+    id: 9,
+    name: 'Steak, Chicken or Mixed Fajitas',
+    price: 18.50,
+    category: 'fajitas',
+    description: 'All fajitas are cooked with grilled onions, zucchini, bell peppers, tomatoes, and mushrooms. Served with rice, beans, lettuce, pico de gallo, sour cream and guacamole. Choice of flour or corn tortillas.',
+    icon: '🫔'
+    , url: 'images/fajitas.jpg'
+  },
+  {
+    id: 10,
+    name: 'Horchata',
+    price: 5.00,
+    category: 'drinks',
+    description: 'Traditional rice drink with cinnamon and vanilla',
+    icon: '🥤'
+    , url: 'images/horchata.png'
+  },
+  {
+    id: 11,
+    name: 'Jamaica',
+    price: 5.00,
+    category: 'drinks',
+    description: 'Refreshing hibiscus flower tea',
+    icon: '🥤'
+    , url: 'images/jamaica.jpg'
+  },
+  {
+    id: 12,
+    name: 'Mexican Coke',
+    price: 5.00,
+    category: 'drinks',
+    description: 'Sweet and tangy tamarind drink',
+    icon: '🥤'
+    , url: 'images/coke.jpg'
+  }
 ];
 
 const categories = ['all','tacos','burritos','enchiladas','drinks'];

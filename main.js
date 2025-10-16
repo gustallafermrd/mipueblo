@@ -9,36 +9,54 @@ const locations = [
     lng: -93.2650
   },
   {
-    name: 'St. Paul East Side',
-    address: '456 East 7th Street',
-    city: 'St. Paul, MN 55106',
+    name: 'Mi Pueblo Lakeville',
+    address: '16060 Cedar Avenue',
+    city: 'SLakeville, MN 55068',
     phone: '(651) 555-0102',
     hours: 'Mon-Sun: 11AM - 10PM',
     lat: 44.9537,
     lng: -93.0900
   },
   {
-    name: 'Bloomington Mall',
-    address: '789 Mall of America',
-    city: 'Bloomington, MN 55425',
+    name: 'Mi Pueblo Eden Prairie',
+    address: '7942 Mitchell Road',
+    city: 'Eden Prairie, MN 55344',
     phone: '(952) 555-0103',
     hours: 'Mon-Sun: 10AM - 9PM',
     lat: 44.8548,
     lng: -93.2422
   },
   {
-    name: 'Rochester Center',
-    address: '321 Broadway Avenue',
-    city: 'Rochester, MN 55904',
+    name: 'Mi Pueblo Mankato',
+    address: '1754 Commerce Dr',
+    city: 'North Mankato, MN 56003',
     phone: '(507) 555-0104',
     hours: 'Mon-Sun: 11AM - 10PM',
     lat: 44.0234,
     lng: -92.4802
   },
   {
-    name: 'Duluth Lakeside',
-    address: '567 Canal Park Drive',
-    city: 'Duluth, MN 55802',
+    name: 'Mi Pueblo Mound',
+    address: '2281 Commerce Boulevard',
+    city: 'Mound, MN 55364',
+    phone: '(218) 555-0105',
+    hours: 'Mon-Sun: 11AM - 10PM',
+    lat: 46.7833,
+    lng: -92.1001
+  },
+  {
+    name: 'Mi Pueblo Stillwater',
+    address: '1491 Stillwater Blvd',
+    city: 'Stillwater, MN 55082',
+    phone: '(218) 555-0105',
+    hours: 'Mon-Sun: 11AM - 10PM',
+    lat: 46.7833,
+    lng: -92.1001
+  },
+  {
+    name: 'Mi Pueblo Cottage Grove',
+    address: 'C0MING SOON',
+    city: 'Mound, MN 55364',
     phone: '(218) 555-0105',
     hours: 'Mon-Sun: 11AM - 10PM',
     lat: 46.7833,
@@ -317,6 +335,24 @@ function closePickupModal() {
   document.body.style.overflow = '';
 }
 
+// Evento para el botón Confirm Location dentro del modal pick-up
+document.querySelector('#pickupModal .btn-primary.btn-full').addEventListener('click', () => {
+  const selectedLocation = document.querySelector('input[name="location"]:checked');
+  if (selectedLocation) {
+    // Cerrar modal pick-up
+    closePickupModal();
+
+    // Mostrar menú desplazando la vista a esa sección
+    const menuSection = document.getElementById('menu');
+    if (menuSection) {
+      const navHeight = document.querySelector('.navbar').offsetHeight;
+      window.scrollTo({ top: menuSection.offsetTop - navHeight, behavior: 'smooth' });
+    }
+  } else {
+    alert('Por favor selecciona una locación.');
+  }
+});
+
 function handleCheckout() {
   if (cart.length === 0) {
     alert('Your cart is empty!');
@@ -520,7 +556,7 @@ function init() {
   document.querySelector('#pickupModal .modal-content .btn-primary').addEventListener('click', () => {
     const selectedLocation = document.querySelector('input[name="location"]:checked');
     if (selectedLocation) {
-      alert(`Pick-up location set to: ${selectedLocation.value}`);
+      //alert(`Pick-up location set to: ${selectedLocation.value}`);
       closePickupModal();
     } else {
       alert('Please select a location');
